@@ -18,9 +18,12 @@ namespace technicalTask
 			Console.WriteLine("Enter file path:");
             //string curFile = Console.ReadLine();
             string curFile = "D:\\TestFile.txt";
+
             Console.WriteLine("Enter word:");
             string curWord = Console.ReadLine();
+
             int curAmount = 0;
+
 			if (!File.Exists(curFile))
 			{
 				Console.WriteLine();
@@ -30,8 +33,9 @@ namespace technicalTask
 			}
 
 			Console.WriteLine();
-			Console.WriteLine("Your file exist in the specified directory\n");
-			try
+			Console.WriteLine("Your file exist in the specified directory");
+            Console.WriteLine();
+            try
 			{
 				using (var streamReader = new StreamReader(curFile))
 				{
@@ -55,7 +59,6 @@ namespace technicalTask
 						}
 					}
 				}
-				
 				foreach (var wordsNumber in wordsStat.OrderByDescending(ws => ws.Value))
 				{
                     if (curWord == wordsNumber.Key)
