@@ -4,27 +4,14 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace technicalTask
 {
     public class FindTheWord
     {
-        public void FindTheWordInTheText()
+        public void FindTheWordInTheText(string curFile, string curWord)
         {
-            var separators = new char[]{ ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '%', '\'', '/',
-                        '$', '&', '*', ';', ':', '.', ',', '-', '_', '^', '(', ')', '[', ']', '{', '}', '/', '?', '\n', '\t', '\r' };
-            var wordsStat = new Dictionary<string, int>();
-
-            Console.WriteLine("Enter file path:");
-            //string curFile = Console.ReadLine();
-            string curFile = "D:\\TestFile.txt";
-
-            Console.WriteLine("Enter word:");
-            //string curWord = Console.ReadLine();
-            string curWord = "English";
-
-            int curAmount = 0;
-
             if (!File.Exists(curFile))
             {
                 Console.WriteLine();
@@ -36,40 +23,27 @@ namespace technicalTask
             Console.WriteLine();
             Console.WriteLine("Your file exist in the specified directory");
             Console.WriteLine();
+            int amountInTheLine;
             try
             {
                 using (var streamReader = new StreamReader(curFile))
                 {
+                    int numberOfString = 0;
                     string inputLine;
-                    // To optimize the use of memory, we are reading file line by line
+
                     while (!streamReader.EndOfStream)
                     {
                         inputLine = streamReader.ReadLine();
-                        var words = inputLine.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-
-                        foreach (string word in words)
+                        numberOfString++;
+                        amountInTheLine = new Regex(curWord).Matches(inputLine).Count;
+                        if (amountInTheLine > 0)
                         {
-                            if (wordsStat.ContainsKey(word))
-                            {
-                                wordsStat[word]++;
-                            }
-                            else
-                            {
-                                wordsStat[word] = 1;
-                            }
+                            Console.WriteLine("Substring {0} is in line #{1} and occurs {2} times", curWord, numberOfString, amountInTheLine);
                         }
+                        
                     }
                 }
-                foreach (var wordsNumber in wordsStat.OrderByDescending(ws => ws.Value))
-                {
-                    if (curWord == wordsNumber.Key)
-                    {
-                        curWord = wordsNumber.Key;
-                        curAmount = wordsNumber.Value;
-                    }
-                }
-                Console.WriteLine("The word that you are looking for is " +
-                            "called {0} and it is found {1} times", curWord, curAmount);
+              
             }
             catch (Exception ex)
             {
