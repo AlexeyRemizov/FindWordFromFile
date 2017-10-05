@@ -10,14 +10,16 @@ namespace technicalTask
 {
     public class FindTheWord
     {
-        public void FindTheWordInTheText(string curFile, string curWord)
+        
+        public Dictionary<int, int> FindTheWordInTheText(string curFile, string curWord)
         {
+            var wordsStat = new Dictionary<int, int>();
+
             if (!File.Exists(curFile))
             {
                 Console.WriteLine();
                 Console.WriteLine(string.Format("File '{0}' is absent in the specified directory", curFile));
                 Console.ReadKey();
-                return;
             }
 
             Console.WriteLine();
@@ -38,19 +40,24 @@ namespace technicalTask
                         amountInTheLine = new Regex(curWord).Matches(inputLine).Count;
                         if (amountInTheLine > 0)
                         {
-                            Console.WriteLine("Substring {0} is in line #{1} and occurs {2} times", curWord, numberOfString, amountInTheLine);
+                            wordsStat[numberOfString] = amountInTheLine;
                         }
                         
                     }
+                    
+
                 }
-              
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine("The programm failed with an error.");
                 Console.WriteLine(ex.ToString());
             }
+            return wordsStat;
 
         }
+
+        
     }
 }
