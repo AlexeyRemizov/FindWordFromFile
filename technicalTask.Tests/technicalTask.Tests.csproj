@@ -62,7 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestWordWithHisAmount.cs" />
+    <Compile Include="NegativeTests\NegativeTestFirstValueOfKeyWordsStat.cs" />
+    <Compile Include="PositiveTests\PositiveTestCompareFirstWithLastValuesOfKeys.cs" />
+    <Compile Include="PositiveTests\PositiveTestLastValueOfValueInWordsStat.cs" />
+    <Compile Include="PositiveTests\PositiveTestLastValueOfKeyInWordsStat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

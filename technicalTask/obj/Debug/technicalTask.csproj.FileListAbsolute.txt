@@ -13,6 +13,5 @@ C:\Users\oleksii.remizov\Documents\Visual Studio 2017\Projects\TechnicalTest-mas
 C:\Users\oleksii.remizov\Documents\Visual Studio 2017\Projects\TechnicalTest\technicalTask\bin\Debug\technicalTask.exe.config
 C:\Users\oleksii.remizov\Documents\Visual Studio 2017\Projects\TechnicalTest\technicalTask\bin\Debug\technicalTask.exe
 C:\Users\oleksii.remizov\Documents\Visual Studio 2017\Projects\TechnicalTest\technicalTask\bin\Debug\technicalTask.pdb
-C:\Users\oleksii.remizov\Documents\Visual Studio 2017\Projects\TechnicalTest\technicalTask\obj\Debug\technicalTask.csprojResolveAssemblyReference.cache
 C:\Users\oleksii.remizov\Documents\Visual Studio 2017\Projects\TechnicalTest\technicalTask\obj\Debug\technicalTask.exe
 C:\Users\oleksii.remizov\Documents\Visual Studio 2017\Projects\TechnicalTest\technicalTask\obj\Debug\technicalTask.pdb
